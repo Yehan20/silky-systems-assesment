@@ -92,7 +92,7 @@ export default {
       }
     },
 
-    // **Create a new team**
+    // Create a new team
     async createTeam({ commit, dispatch }, teamData) {
       commit("clearValidationErrors"); // Clear previous validation errors
       try {
