@@ -16,13 +16,7 @@ class TaskController extends Controller
     {
         //Tasks of the User
         $tasks = Task::where('assigned_to', Auth::id());
-        // ->when(request('team_id'), function ($query) {
-        //     $query->where('team_id', request('team_id'));
-        // })
-        // ->when(request('status'), function ($query) {
-        //     $query->where('status', request('status'));
-        // })
-        // ->get();
+   
 
           return response()->json($tasks);
     }

@@ -18,7 +18,7 @@ class TeamController extends Controller
     {
 
         $user = request()->user();
-        $teams = $user->teams; // Assuming a relationship exists in User model
+        $teams = $user->teams; 
         return response()->json($teams);
     }
 
@@ -69,11 +69,11 @@ class TeamController extends Controller
 
     public function getUsers($teamId)
      {
-            // Find the team by ID
+           
             $team = Team::findOrFail($teamId);
 
-            // Get users associated with the team (assuming many-to-many relationship)
-            $users = $team->users;  // Assuming a 'users' relationship on the Team model
+    
+            $users = $team->users; 
 
             return response()->json($users);
      }
@@ -96,8 +96,7 @@ class TeamController extends Controller
             return response()->json(['errors' => ['user_id' => ['This user is already in the team.']]], 422);
         }
     
-        // $this->authorize('update', $team); // Uncomment if needed for authorization
-    
+
         $team->users()->attach($request->user_id);
     
         return response()->json(['message' => 'User added to the team']);
